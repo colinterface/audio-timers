@@ -24,6 +24,10 @@ const StyledInput = styled.input`
   }
 `;
 
+const StyledButton = styled.button`
+  user-select: none;
+`;
+
 export default function App() {
   // Dynamic delay
   const [delay, setDelay] = useState<number>(15);
@@ -109,13 +113,15 @@ export default function App() {
           justifyContent: "space-evenly",
         }}
       >
-        <button
-          onMouseDown={() => {
+        <StyledButton
+          onTouchStart={(e) => {
+            e.stopPropagation();
+            e.preventDefault();
             setPlaying(false);
             resetCycle();
             startRecording();
           }}
-          onMouseUp={() => {
+          onTouchEnd={() => {
             stopRecording();
           }}
           style={{
@@ -124,7 +130,7 @@ export default function App() {
           }}
         >
           🎤
-        </button>
+        </StyledButton>
 
         {audioUrl && (
           <>
