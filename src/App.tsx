@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState, useRef, useEffect } from "react";
 import { useAudioRecorder } from "react-audio-voice-recorder";
+import { isMobile } from "react-device-detect";
 import styled from "styled-components";
 
 import { useInterval } from "usehooks-ts";
@@ -98,6 +99,21 @@ export default function App() {
     borderWidth: 0,
     cursor: "pointer",
   };
+
+  if (isMobile) {
+    return (
+      <div
+        style={{
+          padding: 17,
+        }}
+      >
+        <h1>
+          sorry! this app doesn't currently support touch screens. try using a
+          big computer instead 🧑‍💻
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div>
