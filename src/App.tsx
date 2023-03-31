@@ -100,11 +100,7 @@ export default function App() {
   };
 
   return (
-    <div
-      style={{
-        height: "100vh",
-      }}
-    >
+    <div>
       <div
         style={{
           display: "flex",
@@ -139,7 +135,6 @@ export default function App() {
                 onClick={() => {
                   if (!isPlaying) {
                     playReminder();
-                    // setInterval(tick, 1000);
                   } else {
                     resetCycle();
                   }
@@ -152,7 +147,6 @@ export default function App() {
             <div
               style={{
                 display: "flex",
-                // flexDirection: "column",
               }}
             >
               <StyledInput
